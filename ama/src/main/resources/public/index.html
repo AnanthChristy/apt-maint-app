@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<p>
+<h2>Resident web services</h2>
+
+<h3>GET -/getResident/{id}</h3>
+
+Response -
+<code>
+<pre>
+{
+    "id": 1,
+    "userType": "Resident",
+    "username": "Ananth",
+    "emailId": "ananth.christy.g@gmail.com",
+    "housingGroup": {
+        "id": 12,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    },
+    "phoneNumber": "4088096719",
+    "alternateNumber": "4088096719",
+    "doorNo": 8
+}
+</pre>
+</code>
+
+POST -/registerResident
+
+<code>
+<pre>
+{
+    "userType": "Resident",
+    "username": "George",
+    "emailId": "george@gmail.com",
+    "housingGroup": {
+        "id": 12,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    },
+    "phoneNumber": "4888888888",
+    "alternateNumber": "4088096719",
+    "doorNo": 16
+}
+</code>
+
+GET -/getAllResidents
+
+</p>
+<p>
+POST -/createHousingGroup
+
+<code>
+<pre>
+{
+    "address": "70 W Hedding St, San Jose, CA-95112",
+    "name": "Hedding Apartments"
+}
+</code>
+
+Response - 
+
+<code>
+<pre>
+{
+    "id": 4,
+    "address": "70 W Hedding St, San Jose, CA-95112",
+    "name": "Hedding Apartments"
+}
+</code>
+
+GET -/getHousingGroup/{id}
+Example -/getHousingGroup/3
+
+Reponse - 
+<code>
+<pre>
+{
+    "id": 3,
+    "address": "McKee Road",
+    "name": "McKee Apartments"
+}
+
+GET -/getHousingGroupByName/McKee Apartments
+
+Reponse - Collection
+
+<code>
+<pre>
+[
+    {
+        "id": 3,
+        "address": "McKee Road",
+        "name": "McKee Apartments"
+    }
+]
+
+</pre>
+</code>
+</p>
+<p>
+POST -/registerOwner
+<code>
+<pre>
+{
+	"userType":"Owner",
+	"username":"Jack Owner",
+	"emailId":"jackboss@apt101.com",
+	"phoneNumber":"4888949494",
+	"alternateNumber":"123456789",
+	"residenceType":"IN_RESIDENCE",
+	"startYear":"2019",
+	"housingGroup": {
+        "id": 4,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    }
+}
+</pre>
+</code>
+
+
+Response
+<code>
+<pre>
+{
+    "id": 3,
+    "userType": "Owner",
+    "username": "Jack Owner",
+    "emailId": "jackboss@apt101.com",
+    "housingGroup": {
+        "id": 4,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    },
+    "phoneNumber": "4888949494",
+    "alternateNumber": "123456789",
+    "startYear": "2019",
+    "residenceType": "IN_RESIDENCE"
+}
+</pre>
+</code>
+
+GET -/getAllOwners
+
+Response - Collection of Owners
+<code>
+<pre>
+[
+    {
+        "id": 3,
+        "userType": "Owner",
+        "username": "Jack Owner",
+        "emailId": "jackboss@apt101.com",
+        "housingGroup": {
+            "id": 4,
+            "address": "70 W Hedding St, San Jose, CA-95112",
+            "name": "Hedding Apartments"
+        },
+        "phoneNumber": "4888949494",
+        "alternateNumber": "123456789",
+        "startYear": "2019",
+        "residenceType": "IN_RESIDENCE"
+    }
+]
+</pre>
+</code>
+
+GET -/getOwner/{id}
+<code>
+<pre>
+{
+    "id": 3,
+    "userType": "Owner",
+    "username": "Jack Owner",
+    "emailId": "jackboss@apt101.com",
+    "housingGroup": {
+        "id": 4,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    },
+    "phoneNumber": "4888949494",
+    "alternateNumber": "123456789",
+    "startYear": "2019",
+    "residenceType": "IN_RESIDENCE",
+    "hibernateLazyInitializer": {}
+}
+</pre>
+</code>
+
+
+GET -/getOwnersByHomeGroupId/4
+
+Response-
+<code>
+<pre>
+[
+    {
+        "id": 3,
+        "userType": "Owner",
+        "username": "Jack Owner",
+        "emailId": "jackboss@apt101.com",
+        "housingGroup": {
+            "id": 4,
+            "address": "70 W Hedding St, San Jose, CA-95112",
+            "name": "Hedding Apartments"
+        },
+        "phoneNumber": "4888949494",
+        "alternateNumber": "123456789",
+        "startYear": "2019",
+        "residenceType": "IN_RESIDENCE"
+    }
+]
+</pre>
+</code>
+</p>
+
+<p>
+
+POST -/registerTechnician
+<code>
+<pre>
+{
+	"userType":"Technician",
+	"username":"Jose Technician",
+	"emailId":"josyposy@apt101.com",
+	"phoneNumber":"9988949494",
+	"alternateNumber":"993456789",
+	"expertise":"Eletricals and Plumbing",
+	"housingGroup": {
+        "id": 4,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    }
+}
+</pre>
+</code>
+
+Response
+<code>
+<pre>
+{
+    "id": 4,
+    "userType": "Technician",
+    "username": "Jose Technician",
+    "emailId": "josyposy@apt101.com",
+    "housingGroup": {
+        "id": 4,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    },
+    "phoneNumber": "9988949494",
+    "alternateNumber": "993456789",
+    "expertise": "Eletricals and Plumbing"
+}
+</pre>
+</code>
+
+GET -/getTechnician/4
+
+<code>
+<pre>
+{
+    "id": 4,
+    "userType": "Technician",
+    "username": "Jose Technician",
+    "emailId": "josyposy@apt101.com",
+    "housingGroup": {
+        "id": 4,
+        "address": "70 W Hedding St, San Jose, CA-95112",
+        "name": "Hedding Apartments"
+    },
+    "phoneNumber": "9988949494",
+    "alternateNumber": "993456789",
+    "expertise": "Eletricals and Plumbing",
+    "hibernateLazyInitializer": {}
+}
+</pre>
+</code>
+
+
+GET -/getAllTechnicians
+
+Response-
+<code>
+<pre>
+[
+    {
+        "id": 4,
+        "userType": "Technician",
+        "username": "Jose Technician",
+        "emailId": "josyposy@apt101.com",
+        "housingGroup": {
+            "id": 4,
+            "address": "70 W Hedding St, San Jose, CA-95112",
+            "name": "Hedding Apartments"
+        },
+        "phoneNumber": "9988949494",
+        "alternateNumber": "993456789",
+        "expertise": "Eletricals and Plumbing"
+    }
+]
+</pre>
+</code>
+</p>
+<p>
+
+POST -/createCategory
+<code>
+<pre>
+{
+        
+        "categoryName": "Plumbing Repairs",
+        "issues": []
+    }
+</pre>
+</code>
+ Response -
+<code>
+<pre>
+
+ {
+    "id": 1,
+    "categoryName": "Plumbing Repairs",
+    "issues": []
+}
+</pre>
+</code>
+
+GET -/getAllCategories
+<code>
+<pre>
+[
+    {
+        "id": 1,
+        "categoryName": "Plumbing Repairs",
+        "issues": []
+    }
+]
+</pre>
+</code>
+
+
+
+POST -/addIssueToCategory/{categoryId}
+<code>
+<pre>
+{
+    "name": "washer Repairs",
+    "description": "Issues with your washer can be looked at with a technician"
+}
+</pre>
+</code>
+Response - 
+<code>
+<pre>
+{
+    "id": 1,
+    "categoryName": "Plumbing Repairs",
+    "issues": [
+        {
+            "id": 1,
+            "name": "washer Repairs",
+            "description": "Issues with your washer can be looked at with a technician"
+        }
+    ],
+    "hibernateLazyInitializer": {}
+}
+</pre>
+</code>
+</p>
+<p>
+
+GET -/getIssue/{issueId}
+
+Response - 
+<code>
+<pre>
+{
+    "id": 2,
+    "name": "washer Repairs",
+    "description": "Issues with your washer can be looked at with a technician",
+    "hibernateLazyInitializer": {}
+}
+</pre>
+</code>
+
+
+DELETE - /removeIssueFromCategory/{categoryId}/{issueId}
+<code>
+<pre>
+{
+    "id": 1,
+    "categoryName": "Plumbing Repairs",
+    "issues": [],
+    "hibernateLazyInitializer": {}
+}
+</pre>
+</code>
+
+GET -/getAllIssuesByCategory/{categoryId}
+
+Response - list of Issues
+<code>
+<pre>
+[
+    {
+        "id": 2,
+        "name": "washer Repairs",
+        "description": "Issues with your washer can be looked at with a technician"
+    }
+]
+</pre>
+</code>
+</p>
+
+
+POST -/createWorkOrder
+<code>
+<pre>
+{
+	"resident":{
+		"id": 5,
+	    "userType": "Resident",
+	    "username": "Ananth",
+	    "emailId": "ananth.christy.g@gmail.com",
+	    "housingGroup": {
+	        "id": 4,
+	        "address": "70 W Hedding St, San Jose, CA-95112",
+	        "name": "Hedding Apartments"
+	    },
+	    "phoneNumber": "4088096719",
+	    "alternateNumber": "4088096719",
+	    "doorNo": 8
+		
+	},
+	"owner":{
+		"id": 3,
+	    "userType": "Owner",
+	    "username": "Jack Owner",
+	    "emailId": "jackboss@apt101.com",
+	    "housingGroup": {
+	        "id": 4,
+	        "address": "70 W Hedding St, San Jose, CA-95112",
+	        "name": "Hedding Apartments"
+	    },
+	    "phoneNumber": "4888949494",
+	    "alternateNumber": "123456789",
+	    "startYear": "2019",
+	    "residenceType": "IN_RESIDENCE",
+	    "hibernateLazyInitializer": {}
+	},
+	"technician":{
+		"id": 4,
+	    "userType": "Technician",
+	    "username": "Jose Technician",
+	    "emailId": "josyposy@apt101.com",
+	    "housingGroup": {
+	        "id": 4,
+	        "address": "70 W Hedding St, San Jose, CA-95112",
+	        "name": "Hedding Apartments"
+	    },
+	    "phoneNumber": "9988949494",
+	    "alternateNumber": "993456789",
+	    "expertise": "Eletricals and Plumbing",
+	    "hibernateLazyInitializer": {}
+	},
+	"category":{
+        "id": 1,
+        "categoryName": "Plumbing Repairs",
+        "issues": [
+            {
+                "id": 2,
+                "name": "washer Repairs",
+                "description": "Issues with your washer can be looked at with a technician"
+            }
+        ]
+	},
+	"issue":{
+        "id": 2,
+        "name": "washer Repairs",
+        "description": "Issues with your washer can be looked at with a technician"
+	},
+	"status":"OPEN"
+	
+	
+}
+</pre>
+</code>
+
+Response
+<code>
+<pre>
+{
+    "id": 2,
+    "resident": {
+        "id": 5,
+        "userType": "Resident",
+        "username": "Ananth",
+        "emailId": "ananth.christy.g@gmail.com",
+        "housingGroup": {
+            "id": 4,
+            "address": "70 W Hedding St, San Jose, CA-95112",
+            "name": "Hedding Apartments"
+        },
+        "phoneNumber": "4088096719",
+        "alternateNumber": "4088096719",
+        "doorNo": 8
+    },
+    "owner": {
+        "id": 3,
+        "userType": "Owner",
+        "username": "Jack Owner",
+        "emailId": "jackboss@apt101.com",
+        "housingGroup": {
+            "id": 4,
+            "address": "70 W Hedding St, San Jose, CA-95112",
+            "name": "Hedding Apartments"
+        },
+        "phoneNumber": "4888949494",
+        "alternateNumber": "123456789",
+        "startYear": "2019",
+        "residenceType": "IN_RESIDENCE"
+    },
+    "technician": {
+        "id": 4,
+        "userType": "Technician",
+        "username": "Jose Technician",
+        "emailId": "josyposy@apt101.com",
+        "housingGroup": {
+            "id": 4,
+            "address": "70 W Hedding St, San Jose, CA-95112",
+            "name": "Hedding Apartments"
+        },
+        "phoneNumber": "9988949494",
+        "alternateNumber": "993456789",
+        "expertise": "Eletricals and Plumbing"
+    },
+    "category": {
+        "id": 1,
+        "categoryName": "Plumbing Repairs",
+        "issues": [
+            {
+                "id": 2,
+                "name": "washer Repairs",
+                "description": "Issues with your washer can be looked at with a technician"
+            }
+        ]
+    },
+    "issue": {
+        "id": 2,
+        "name": "washer Repairs",
+        "description": "Issues with your washer can be looked at with a technician"
+    },
+    "date": null,
+    "status": "OPEN"
+}
+</pre>
+</code>
+
+
+</body>
+</html>
