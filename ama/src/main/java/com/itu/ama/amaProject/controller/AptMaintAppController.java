@@ -4,6 +4,7 @@ import java.util.Collection;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.itu.ama.amaProject.model.Technician;
 import com.itu.ama.amaProject.model.WorkOrder;
 import com.itu.ama.amaProject.type.WorkOrderStatus;
 
+@CrossOrigin(origins = "https://apt-maint.herokuapp.com")
 @RestController
 public class AptMaintAppController {
 	
