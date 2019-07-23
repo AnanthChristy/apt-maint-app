@@ -18,6 +18,8 @@ public interface AptMaintService {
 	
 	Resident getResidentInfo(Long id);
 	
+	Resident getResidentByEmailId(String emailId);
+	
 	Collection<Resident> getAllResidents();
 	
 	Collection<Resident> getAllResidentsByGroupId(Long id);
@@ -27,6 +29,8 @@ public interface AptMaintService {
 	
 	Owner getOwnerInfo(Long id);
 	
+	Owner getOwnerByEmailId(String emailId);
+	
 	Collection<Owner> getAllOwners();
 	
 	Collection<Owner> getAllOwnersByGroupId(Long id);
@@ -35,6 +39,8 @@ public interface AptMaintService {
 	Technician saveTechnicianInfo(Technician technician);
 	
 	Technician getTechnicianInfo(Long id);
+	
+	Technician getTechnicianByEmailId(String id);
 	
 	Collection<Technician> getAllTechnicians();
 	

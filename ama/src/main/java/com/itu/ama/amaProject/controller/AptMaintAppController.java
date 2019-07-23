@@ -21,7 +21,7 @@ import com.itu.ama.amaProject.model.Technician;
 import com.itu.ama.amaProject.model.WorkOrder;
 import com.itu.ama.amaProject.type.WorkOrderStatus;
 
-@CrossOrigin(origins = "https://apt-maint.herokuapp.com")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class AptMaintAppController {
 	
@@ -47,6 +47,13 @@ public class AptMaintAppController {
 	public Resident getResidentById(@PathVariable("id") Long id) {
 		return aptMaintService.getResidentInfo(id);
 	}
+	
+	@RequestMapping(value="/getResidentByEmail/{id}")
+	public Resident getResidentByEmailId(@PathVariable("id") String id) {
+		return aptMaintService.getResidentByEmailId(id);
+	}
+	
+	
 	
 	@RequestMapping(value="/getResidentsByHomeGroupId/{groupId}")
 	public Collection<Resident> getResidentByHomeGroupId(@PathVariable("groupId") Long groupId){
@@ -98,6 +105,11 @@ public class AptMaintAppController {
 		return aptMaintService.getOwnerInfo(id);
 	}
 	
+	@RequestMapping(value="/getOwnerByEmail/{id}")
+	public Owner getOwnerByEmailId(@PathVariable("id") String id) {
+		return aptMaintService.getOwnerByEmailId(id);
+	}
+	
 	@RequestMapping(value="/getOwnersByHomeGroupId/{groupId}")
 	public Collection<Owner> getOwnersByHomeGroupId(@PathVariable("groupId") Long groupId){
 		return aptMaintService.getAllOwnersByGroupId(groupId);
@@ -131,6 +143,11 @@ public class AptMaintAppController {
 	@RequestMapping(value="/getTechnician/{id}")
 	public Technician getTechnicianById(@PathVariable("id") Long id) {
 		return aptMaintService.getTechnicianInfo(id);
+	}
+	
+	@RequestMapping(value="/getTechnicianByEmail/{id}")
+	public Technician getTechnicianByEmailId(@PathVariable("id") String id) {
+		return aptMaintService.getTechnicianByEmailId(id);
 	}
 	
 	@RequestMapping(value="/getTechnicianByHousingGroupId/{groupId}")

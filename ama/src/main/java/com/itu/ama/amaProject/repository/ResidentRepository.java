@@ -14,4 +14,7 @@ public interface ResidentRepository extends UserBaseRepository<Resident>{
 	@Query(value = "SELECT * FROM RESIDENT WHERE GROUP_ID= ?1", nativeQuery = true)
 	public Collection<Resident> getResidentsByGroupID(Long id);
 	
+	@Query(value="SELECT * FROM RESIDENT WHERE EMAIL_ID=?1", nativeQuery=true)
+	public Resident getResidentByEmailId(String name);
+	
 }

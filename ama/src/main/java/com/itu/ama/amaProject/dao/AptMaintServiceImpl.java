@@ -234,6 +234,23 @@ public class AptMaintServiceImpl implements AptMaintService {
 		
 		return newList;
 	}
+
+	@Override
+	public Resident getResidentByEmailId(String emailId) {
+		emailId.trim();
+		return residentRepo.getResidentByEmailId(emailId);
+	}
+
+	@Override
+	public Owner getOwnerByEmailId(String emailId) {
+		emailId.trim();
+		return ownerRepo.getOwnerByEmailId(emailId);
+	}
+
+	@Override
+	public Technician getTechnicianByEmailId(String id) {
+		return technicianRepo.getTechnicianByEmailId(id.trim());
+	}
 	
 	
 	
