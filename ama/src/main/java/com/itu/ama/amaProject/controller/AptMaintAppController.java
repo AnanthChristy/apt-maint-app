@@ -48,7 +48,9 @@ public class AptMaintAppController {
 		return aptMaintService.getResidentInfo(id);
 	}
 	
-	@RequestMapping(value="/getResidentByEmail/{id}")
+	@RequestMapping(value="/getResidentByEmail/{id}",
+			method=RequestMethod.GET,
+			produces= {"application/json"})
 	public Resident getResidentByEmailId(@PathVariable("id") String id) {
 		return aptMaintService.getResidentByEmailId(id);
 	}
@@ -105,7 +107,9 @@ public class AptMaintAppController {
 		return aptMaintService.getOwnerInfo(id);
 	}
 	
-	@RequestMapping(value="/getOwnerByEmail/{id}")
+	@RequestMapping(value="/getOwnerByEmail/{id}",
+			method=RequestMethod.GET,
+			produces= {"application/json"})
 	public Owner getOwnerByEmailId(@PathVariable("id") String id) {
 		return aptMaintService.getOwnerByEmailId(id);
 	}
@@ -145,7 +149,9 @@ public class AptMaintAppController {
 		return aptMaintService.getTechnicianInfo(id);
 	}
 	
-	@RequestMapping(value="/getTechnicianByEmail/{id}")
+	@RequestMapping(value="/getTechnicianByEmail/{id}",
+			method=RequestMethod.GET,
+			produces= {"application/json"})
 	public Technician getTechnicianByEmailId(@PathVariable("id") String id) {
 		return aptMaintService.getTechnicianByEmailId(id);
 	}
@@ -226,17 +232,23 @@ public class AptMaintAppController {
 		return aptMaintService.createNewWorkOrder(workOrder);
 	}
 	
-	@RequestMapping(value="/getAllWorkOrdersByResidentId/{id}")
+	@RequestMapping(value="/getAllWorkOrdersByResidentId/{id}",
+			method=RequestMethod.GET,
+			produces= {"application/json"})
 	public Collection<WorkOrder> getAllWorkOrdersByResidentId(@PathVariable("id") Long id){
 		return aptMaintService.getAllWorkOrdersByResident(id);
 	}
 	
-	@RequestMapping(value="/getAllWorkOrdersByOwnerId/{id}")
+	@RequestMapping(value="/getAllWorkOrdersByOwnerId/{id}",
+			method=RequestMethod.GET,
+			produces= {"application/json"})
 	public Collection<WorkOrder> getAllWorkOrdersByOwnerId(@PathVariable("id") Long id){
 		return aptMaintService.getAllWorkOrdersByOwner(id);
 	}
 	
-	@RequestMapping(value="/getAllWorkOrdersByTechnicianId/{id}")
+	@RequestMapping(value="/getAllWorkOrdersByTechnicianId/{id}",
+			method=RequestMethod.GET,
+			produces= {"application/json"})
 	public Collection<WorkOrder> getAllWorkOrdersByTechnicianId(@PathVariable("id") Long id){
 		return aptMaintService.getAllWorkOrdersByTechnician(id);
 	}
