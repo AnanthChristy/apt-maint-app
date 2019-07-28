@@ -53,6 +53,8 @@ public interface AptMaintService {
 	
 	Collection<HousingGroup> getHousingGroupByName(String name);
 	
+	Collection<HousingGroup> getAllHousingGroups();
+	
 	
 	
 	Category createCategory(Category category);

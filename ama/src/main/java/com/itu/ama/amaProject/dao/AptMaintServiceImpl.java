@@ -253,6 +253,10 @@ public class AptMaintServiceImpl implements AptMaintService {
 	}
 	
 	
+	public Collection<HousingGroup> getAllHousingGroups(){
+		return housingGroupRepo.findAll();
+	}
+	
 	
 	
 	

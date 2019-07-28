@@ -88,6 +88,13 @@ public class AptMaintAppController {
 		return aptMaintService.getHousingGroupByName(name);
 	}
 	
+	@RequestMapping(value="/getAllHousingGroups",
+			method=RequestMethod.GET,
+			produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	public Collection<HousingGroup> getAllHousingGroups(){
+		return aptMaintService.getAllHousingGroups();
+	}
+	
 	
 	@RequestMapping(value="/registerOwner",
 			method=RequestMethod.POST,
